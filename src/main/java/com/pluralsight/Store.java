@@ -190,11 +190,46 @@ public class Store {
 
         double change = payment - totalAmount;
 
+        System.out.println();
+        System.out.println("--------------------------");
+        System.out.println("       SALES RECEIPT      ");
+        System.out.println("--------------------------");
+        System.out.println();
+
+        for (Product Product : cart) {
+            System.out.println(product.getName() + " $" + String.format("%.2f", product.getprice()));
+        }
+
+        System.out.println();
+        System.out.println("-----------------------------------");
+        System.out.println("Total:   $" + String.format("%.2f", totalAmount));
+        System.out.println("Paid:    $" + String.format("%.2f", payment));
+        System.out.println("Change:  $" + String.format("%.2f", change));
+        System.out.println("===================================");
+        System.out.println("    Thank you for you purchase!    ");
+        System.out.println("===================================");
 
 
+        saveReceiptToFile(cart, totalAmount, payment, change);
 
+        cart.clear();
 
+        System.out.println();
+        System.out.print("Press Enter to return to the home screen...");
+        scanner.nextLine();
 
+    }
+
+    public static void saveReceiptToFile(ArrayList<Product> cart,
+                                         double totalAmount,
+                                         double payment,
+                                         double change) {
+        try {
+            java.io.File receiptFolder = new java.io.File("Receipts");
+            if (!receiptFolder.exists()) {
+                receiptFolder.mkdir();
+            }
+        }
 
     }
 
