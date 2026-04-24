@@ -138,6 +138,20 @@ public class Store {
 
         double totalAmount = 0.0;
 
+        for (Product product : cart) {
+            System.out.println(product);
+            totalAmount = totalAmount + product.getPrice();
+        }
+
+        System.out.println();
+        System.out.println("Total: $" + String.format("%.2f" , totalAmount));
+        System.out.println();
+        System.out.println("Checked out (C) or Go back (X): ");
+        String input = scanner.nextLine().trim();
+
+        if (input.equalsIgnoreCase("C")) {
+            checkOut(cart, totalAmount, scanner);
+        }
 
     }
 
@@ -151,7 +165,19 @@ public class Store {
     public static void checkOut(ArrayList<Product> cart,
                                 double totalAmount,
                                 Scanner scanner) {
-        // TODO: implement steps listed above
+        System.out.println();
+        System.out.println("---- Checkout ----");
+        System.out.println("Total amount due: $" + String.format("%.2f", totalAmount));
+        System.out.println();
+        System.out.println("Enter payment amount: $");
+
+        if (!scanner.hasNextDouble()) {
+            System.out.println("Invalid payment amount. Please enter a number.");
+            scanner.nextLine();
+            return;
+        }
+
+
     }
 
     /**
