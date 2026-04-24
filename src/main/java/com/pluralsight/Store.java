@@ -175,7 +175,25 @@ public class Store {
             System.out.println("Invalid payment amount. Please enter a number.");
             scanner.nextLine();
             return;
+
         }
+
+        double payment = scanner.nextDouble();
+        scanner.nextLine();
+
+        if (payment < totalAmount) {
+            System.out.println("Payment is not enough. You still owe $" +
+                    String.format("%.2f", totalAmount - payment));
+            System.out.println("Please try checkout again. ");
+            return;
+        }
+
+        double change = payment - totalAmount;
+
+
+
+
+
 
 
     }
