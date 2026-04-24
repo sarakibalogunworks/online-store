@@ -3,6 +3,7 @@ package com.pluralsight;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -65,16 +66,24 @@ public class Store {
             FileReader fileReader = new FileReader(fileName);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
-            String line = BufferedReader.readLine();
+            String line = bufferedReader.readLine();
 
-            While (line != null) {
+            while (line != null) {
                 String[] parts = line.split("\|");
 
                 String id = parts[0];
                 String name = parts[1];
                 double price = Double.parseDouble(parts[2]);
 
+                Product product = new Product(id,name,price);
+                inventory.add(product);
+
+                line = bufferedReader.readLine();
+
             }
+            bufferedReader.close();
+        } catch (IOException error) {
+            System.out.println("Error reading inventory file: " + error.getMessage());
         }
     }
 
