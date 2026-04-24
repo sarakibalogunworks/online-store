@@ -109,7 +109,7 @@ public class Store {
             return;
         }
 
-        Product foundProduct = findProductById(input,inventory);
+        Product foundProduct = findProductById(input, inventory);
 
         if (foundProduct != null) {
             cart.add(foundProduct);
@@ -118,7 +118,6 @@ public class Store {
             System.out.println("Product not found. Please check the ID and try again.");
         }
 
-
     }
 
     /**
@@ -126,11 +125,7 @@ public class Store {
      * and offers the option to check out.
      */
     public static void displayCart(ArrayList<Product> cart, Scanner scanner) {
-        // TODO:
-        //   • list each product in the cart
-        //   • compute the total cost
-        //   • ask the user whether to check out (C) or return (X)
-        //   • if C, call checkOut(cart, totalAmount, scanner)
+
     }
 
     /**
