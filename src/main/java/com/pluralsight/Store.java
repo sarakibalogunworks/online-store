@@ -94,8 +94,25 @@ public class Store {
     public static void displayProducts(ArrayList<Product> inventory,
                                        ArrayList<Product> cart,
                                        Scanner scanner) {
-        // TODO: show each product (id, name, price),
-        //       prompt for an id, find that product, add to cart
+        System.out.println("\n---- All Products ----");
+        System.out.println();
+
+        for (Product product : inventory) {
+            System.out.println(product);
+        }
+
+        System.out.println();
+        System.out.println("Enter product ID to add to cart (or X to go back): ");
+        String input = scanner.nextLine().trim();
+
+        if (input.equalsIgnoreCase("X")) {
+            return;
+        }
+
+        Product foundProduct = findProductById(input,inventory);
+
+
+
     }
 
     /**
