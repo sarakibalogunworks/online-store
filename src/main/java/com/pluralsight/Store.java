@@ -111,6 +111,12 @@ public class Store {
 
         Product foundProduct = findProductById(input,inventory);
 
+        if (foundProduct != null) {
+            cart.add(foundProduct);
+            System.out.println(foundProduct.getName() + " has been added to your cart.");
+        } else {
+            System.out.println("Product not found. Please check the ID and try again.");
+        }
 
 
     }
