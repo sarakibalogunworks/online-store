@@ -1,6 +1,8 @@
 
 package com.pluralsight;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -23,10 +25,13 @@ public class Store {
         Scanner scanner = new Scanner(System.in);
         int choice = -1;
         while (choice != 3) {
-            System.out.println("\nWelcome to the Online Store!");
+            System.out.println("\n------------------------------");
+            System.out.println("  Welcome to the Online Store!");
+            System.out.println("-------------------------------");
             System.out.println("1. Show Products");
             System.out.println("2. Show Cart");
             System.out.println("3. Exit");
+            System.out.println("---------------------------------");
             System.out.print("Your choice: ");
 
             if (!scanner.hasNextInt()) {
@@ -41,7 +46,7 @@ public class Store {
                 case 1 -> displayProducts(inventory, cart, scanner);
                 case 2 -> displayCart(cart, scanner);
                 case 3 -> System.out.println("Thank you for shopping with us!");
-                default -> System.out.println("Invalid choice!");
+                default -> System.out.println("Invalid choice! Please enter 1, 2, or 3.");
             }
         }
         scanner.close();
@@ -56,8 +61,21 @@ public class Store {
      * A17|Wireless Mouse|19.99
      */
     public static void loadInventory(String fileName, ArrayList<Product> inventory) {
-        // TODO: read each line, split on "|",
-        //       create a Product object, and add it to the inventory list
+        try {
+            FileReader fileReader = new FileReader(fileName);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+            String line = BufferedReader.readLine();
+
+            While (line != null) {
+                String[] parts = line.split("\|");
+
+                String id = parts[0];
+                String name = parts[1];
+                double price = Double.parseDouble(parts[2]);
+
+            }
+        }
     }
 
     /**
