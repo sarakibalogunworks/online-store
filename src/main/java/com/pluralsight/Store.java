@@ -125,6 +125,19 @@ public class Store {
      * and offers the option to check out.
      */
     public static void displayCart(ArrayList<Product> cart, Scanner scanner) {
+        if (cart.isEmpty()) {
+            System.out.println("\nYour cart is empty.");
+            System.out.println();
+            System.out.println("Press Enter to go back the home screen...");
+            scanner.nextLine();
+            return;
+        }
+
+        System.out.println("\n----- Your Cart -----");
+        System.out.println();
+
+        double totalAmount = 0.0;
+
 
     }
 
